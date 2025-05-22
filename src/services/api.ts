@@ -18,6 +18,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://codetype-backend-p
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
+    "Access-Control-Allow-Origin": "*",
     'Content-Type': 'application/json',
   },
 });
