@@ -12,7 +12,6 @@ interface CodeEditorProps {
 
 export const CodeEditor: React.FC<CodeEditorProps> = ({
     content,
-    language,
     userInput,
     currentIndex,
     onKeyPress,

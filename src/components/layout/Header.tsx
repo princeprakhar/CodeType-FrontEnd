@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import type { RootState } from '@/store/store';
 import { logout } from '@/store/slices/authSlice';
 import { Button } from '@/components/ui/button';
-import { Code, User, BarChart3, LogOut } from 'lucide-react';
+import { Code, User, LogOut } from 'lucide-react';
 
 export const Header: React.FC = () => {
   const dispatch = useDispatch();

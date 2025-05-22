@@ -17,7 +17,7 @@ export const ProgressChart: React.FC<ProgressChartProps> = ({ data }) => {
   }
 
   const maxWPM = Math.max(...data.map(d => d.avg_wpm));
-  const maxAccuracy = 100;
+  // const maxAccuracy = 100;
 
   return (
     <div className="bg-white p-6 rounded-lg shadow">
@@ -25,7 +25,7 @@ export const ProgressChart: React.FC<ProgressChartProps> = ({ data }) => {
       
       {/* Simple bar chart representation */}
       <div className="space-y-4">
-        {data.slice(-10).map((stat, index) => (
+        {data.slice(-10).map((stat) => (
           <div key={stat.date} className="flex items-center space-x-4">
             <div className="w-20 text-sm text-gray-600">
               {new Date(stat.date).toLocaleDateString('en-US', { 
