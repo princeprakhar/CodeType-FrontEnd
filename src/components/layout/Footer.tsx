@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
                 Github
               </a>
               <a
-                href="https://twitter.com"
+                href="https://x.com/PRAKHARDEEP18"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gray-600 transition-colors"
