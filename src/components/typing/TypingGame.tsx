@@ -260,51 +260,53 @@ export const TypingGame: React.FC = () => {
       />
 
       {/* Two-column layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Left side - Reference Code */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <div className="mb-4">
-            <h3 className="text-lg font-medium text-gray-900">
-              Reference Code
-            </h3>
-            <p className="text-sm text-gray-600">
-              {currentSnippet.language.charAt(0).toUpperCase() + currentSnippet.language.slice(1)} - {' '}
-              {currentSnippet.domain.replace('_', ' ').charAt(0).toUpperCase() + currentSnippet.domain.replace('_', ' ').slice(1)}
-            </p>
-            <p className="text-sm text-gray-600">
-              Difficulty: {DIFFICULTIES.find(d => d.value === currentSnippet.difficulty)?.label}
-            </p>
-          </div>
-          
-          {/* Reference code display */}
-          <div className="bg-gray-50 rounded-md p-4 border">
-            <pre className="text-sm font-mono text-gray-800 whitespace-pre-wrap leading-relaxed">
-              {currentSnippet.content}
-            </pre>
-          </div>
-        </div>
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+  {/* Left side - Reference Code */}
+  <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 flex flex-col">
+    <div className="mb-4">
+      <h3 className="text-lg font-medium text-gray-900">
+        Reference Code
+      </h3>
+      <p className="text-sm text-gray-600">
+        {currentSnippet.language.charAt(0).toUpperCase() + currentSnippet.language.slice(1)} - {' '}
+        {currentSnippet.domain.replace('_', ' ').charAt(0).toUpperCase() + currentSnippet.domain.replace('_', ' ').slice(1)}
+      </p>
+      <p className="text-sm text-gray-600">
+        Difficulty: {DIFFICULTIES.find(d => d.value === currentSnippet.difficulty)?.label}
+      </p>
+    </div>
+    
+    {/* Reference code display */}
+    <div className="bg-gray-50 rounded-md p-4 border flex-1 overflow-auto">
+      <pre className="text-sm font-mono text-gray-800 whitespace-pre-wrap leading-relaxed">
+        {currentSnippet.content}
+      </pre>
+    </div>
+  </div>
 
-        {/* Right side - Typing Area */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <div className="mb-4">
-            <h3 className="text-lg font-medium text-gray-900">
-              Type Here
-            </h3>
-            <p className="text-sm text-gray-600">
-              Type the code from the left panel
-            </p>
-          </div>
+  {/* Right side - Typing Area */}
+  <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 flex flex-col">
+    <div className="mb-4">
+      <h3 className="text-lg font-medium text-gray-900">
+        Type Here
+      </h3>
+      <p className="text-sm text-gray-600">
+        Type the code from the left panel
+      </p>
+    </div>
 
-          <CodeEditor
-            content={currentSnippet.content}
-            language={currentSnippet.language}
-            userInput={typingState.userInput}
-            currentIndex={typingState.currentIndex}
-            onKeyPress={typingState.handleKeyPress}
-            mistakePositions={Array.from(typingState.mistakePositions)}
-          />
-        </div>
-      </div>
+    <div className="flex-1">
+      <CodeEditor
+        content={currentSnippet.content}
+        language={currentSnippet.language}
+        userInput={typingState.userInput}
+        currentIndex={typingState.currentIndex}
+        onKeyPress={typingState.handleKeyPress}
+        mistakePositions={Array.from(typingState.mistakePositions)}
+      />
+    </div>
+  </div>
+</div>
 
       {/* Settings Panel */}
       <SettingsPanel
